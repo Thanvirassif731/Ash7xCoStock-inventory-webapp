@@ -17,7 +17,7 @@ const Sidebar: React.FC = () => {
           Dashboard
         </NavLink>
         <NavLink to="/cogs-report" className={styles.navItem}>COGS Report</NavLink>
-        <NavLink to="/logs" className={styles.navItem}>Admin Logs</NavLink>
+        <NavLink to="/admin-logs" className={styles.navItem}>Admin Logs</NavLink>
       </nav>
 
       <div className={styles.logoutWrap}>

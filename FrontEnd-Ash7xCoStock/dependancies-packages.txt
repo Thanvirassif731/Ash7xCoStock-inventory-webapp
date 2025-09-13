@@ -5,6 +5,9 @@ npm install --save-dev @types/yup
 npm install -D sass-embedded
 npm install react-bootstrap bootstrap
 npm install chart.js react-chartjs-2
+npm install react@18 react-dom@18
+npm install -D @types/react@18 @types/react-dom@18
+
 
 
 

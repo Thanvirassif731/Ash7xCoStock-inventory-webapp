@@ -10,7 +10,7 @@ import { Toasts } from "./components/Toast/Toast.tsx";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import COGSReport from "./pages/COGSReport";
-// import AdminLogs from "./pages/AdminLogs";
+import AdminLogsPage from "./pages/AdminLogsPage.tsx";
 
 
 const AppRoutes: React.FC = () => {
@@ -36,6 +36,7 @@ const App: React.FC = () => {
       } />
 
       <Route path="/cogs-report" element={<COGSReport />} />
+       <Route path="/admin-logs" element={<AdminLogsPage />} />
 
       {/* <Route path="/admin-logs" element={<AdminLogs />} /> */}
       <Route path="*" element={<Navigate to="/" replace />} />
