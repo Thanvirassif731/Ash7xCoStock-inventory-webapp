@@ -1,0 +1,16 @@
+npm install react-router-dom
+npm install axios
+npm install react-hook-form yup @hookform/resolvers
+npm install --save-dev @types/yup
+npm install -D sass-embedded
+npm install react-bootstrap bootstrap
+npm install chart.js react-chartjs-2
+
+
+
+
+
+---
+Email:  admin@costock.com
+Password: Admin@123
+---

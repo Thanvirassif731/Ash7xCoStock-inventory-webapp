@@ -1,0 +1,147 @@
+/* Login.module.scss */
+
+/* Font choice: Verdana preferred, fallback system */
+:global(html, body) {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Page layout */
+$page-bg: #07071a; /* deep navy / almost black */
+$card-bg: rgba(255,255,255,0.15); /* semi opaque grey like figma */
+$label-bg: #07071a; /* deep navy used for label pill */
+$label-text: #ffffff;
+$input-bg: #ffffff;
+$accent: #0f1230; /* darker accent for button & label shading */
+
+.page {
+  min-height: 100vh;
+  background: $page-bg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+/* Header with logo centered near top — keep some vertical spacing */
+.header {
+  padding-top: 42px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.logo {
+  width: 360px;
+  max-width: 60%;
+  opacity: 0.95;
+  filter: grayscale(20%) brightness(0.9);
+}
+
+/* Main area centers the rounded big card */
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  padding: 0 24px 80px;
+}
+
+/* Big rounded card like the design */
+.cardWrap {
+  width: min(88rem, 78%);
+  background: $card-bg;
+  border-radius: 34px;
+  padding: 64px 0; /* big vertical space like design */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.12) inset;
+}
+
+/* inner form container to limit form width and align */
+.formInner {
+  width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: center;
+}
+
+/* single field wrapper */
+.field {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 18px;
+}
+
+/* label on left as pill */
+.fieldLabel {
+  background: $label-bg;
+  color: $label-text;
+  padding: 14px 20px;
+  border-radius: 10px;
+  min-width: 170px;
+  text-align: left;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25) inset;
+}
+
+/* input on right */
+.fieldInput {
+  flex: 1;
+  height: 46px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  padding: 8px 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  font-size: 15px;
+}
+
+/* CTA area containing sign-in button + small link */
+.cta {
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* sign in button */
+.signInBtn {
+  background: $accent;
+  border: none;
+  color: white;
+  padding: 12px 38px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 160px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+}
+
+/* small sign up hint */
+.signupLink {
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .formInner { width: 92%; }
+  .fieldLabel { min-width: 140px; padding: 12px 14px; font-size: 14px; }
+  .logo { width: 280px; }
+  .cardWrap { padding: 36px 0; border-radius: 20px; }
+}
+
+@media (max-width: 520px) {
+  .field { gap: 12px; flex-direction: column; align-items: stretch; }
+  .fieldLabel { width: 100%; min-width: unset; border-radius: 10px; text-align: left; }
+  .fieldInput { width: 100%; }
+  .formInner { gap: 14px; }
+  .logo { width: 200px; }
+}

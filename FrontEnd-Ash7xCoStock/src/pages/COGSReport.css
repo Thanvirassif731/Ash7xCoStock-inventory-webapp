@@ -1,0 +1,234 @@
+:root {
+    --bg: #f6f6f9;
+    --frame: #dcdcdc;
+    /* outer thick rounded frame */
+    --card-bg: #ffffff;
+    --strip-bg: #e9e9e9;
+    /* header strip bg */
+    --strip-border: #cfcfcf;
+    --accent-blue: #274a63;
+    /* table header blue */
+    --muted: #777777;
+    --shadow: 0 6px 18px rgba(20, 24, 40, 0.04);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    transition: margin-left 180ms ease;
+    padding: 2rem;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+/* Page wrapper (optional) */
+.cogs-page {
+    background: var(--bg);
+    color: #111;
+    min-height: 100vh;
+    font-family: var(--font-stack, Verdana, sans-serif);
+}
+
+/* Outer rounded frame that appears like the thick grey rounded rectangle in the screenshot.
+   Use this on the outer-most element that wraps each section.
+*/
+.report-frame {
+    background: var(--frame);
+    border-radius: 22px;
+    padding: 18px;
+    /* creates inner inset */
+    margin-bottom: 24px;
+    display: block;
+}
+
+/* Inner card sits inside the frame and contains the actual content (white) */
+.report-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* The slim gray header strip on the top-left of the card */
+.card-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--strip-bg);
+    border-radius: 12px;
+    padding: 8px 12px;
+    border: 1px solid var(--strip-border);
+    font-weight: 600;
+    color: #2a2a2a;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+/* small info icon circle (if you want to show small circle near title) */
+.card-strip .info-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #ccc;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* Card title row (for alignment with the strip) */
+.card-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* Download button (matching top bar button) */
+.download-btn {
+    background: #111827;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.download-btn:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+}
+
+/* Table base styling */
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    color: #111827;
+}
+
+/* Table header row (blue strip like in figma) */
+.report-table thead th {
+    background: var(--accent-blue);
+    color: #fff;
+    font-weight: 700;
+    padding: 12px;
+    border-bottom: 2px solid #d9d9d9;
+    text-align: left;
+}
+
+/* Table body */
+.report-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px dotted #d9d9d9;
+    vertical-align: middle;
+}
+
+/* Emphasized final row */
+.report-table tbody tr.total-row td {
+    font-weight: 700;
+    background: #f3f7fb;
+}
+
+/* Small utility to make a card look like a small chart container */
+.chart-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #e6e6e6;
+    box-shadow: var(--shadow);
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Make chart titles centered and muted similar to screenshot */
+.chart-card h4 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* small responsive helpers */
+@media (max-width: 1024px) {
+    .chart-card {
+        min-height: 160px;
+        padding: 12px;
+    }
+
+    .card-strip {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .report-frame {
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    .report-card {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .card-strip {
+        padding: 6px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+}
+
+
+:root {
+  --sidebar-width: 220px; /* <-- adjust if your Sidebar is wider/narrower */
+}
+
+/* Ensure the root wrapper provides padding to avoid content touch-edge */
+.cogs-page {
+  padding-left: 0; /* keep base; main-content takes the offset */
+}
+
+/* Main content should start after the fixed sidebar */
+.main-content {
+  margin-left: var(--sidebar-width);    /* reserve space for fixed sidebar */
+  max-width: calc(100% - var(--sidebar-width));
+  box-sizing: border-box;
+  overflow-x: hidden;                  /* prevent horizontal scroll from charts/tables */
+  transition: margin-left 180ms ease, max-width 180ms ease;
+  position: relative;
+  z-index: 1;
+  padding: 2rem;                        /* keep your spacing */
+}
+
+/* small-screen behaviour: let sidebar overlay content */
+@media (max-width: 900px) {
+  .main-content {
+    margin-left: 0;
+    max-width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* if your sidebar still overlays because it's high z-index, allow main to be above by default */
+@media (min-width: 901px) {
+  .main-content {
+    z-index: 0;
+  }
+}

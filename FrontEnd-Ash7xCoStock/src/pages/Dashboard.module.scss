@@ -1,0 +1,81 @@
+/* Dashboard.module.scss */
+
+:global(html, body) {
+  height: 100%;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  background: #f6f6f7; /* light page background like Figma */
+}
+
+/* content sits to the right of the fixed sidebar */
+.content {
+  margin-left: 220px;      /* MUST match sidebar width */
+  padding: 24px 28px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* top filter bar area */
+.topFiltersWrapper {
+  width: 100%;
+  padding: 8px 12px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* If TopFilters component injects its own container class, ensure it fits:
+   Example: .topFilters { width: calc(100%); display:flex; gap: 12px; } */
+
+/* Grid of chart rows */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Each row holds two cards side-by-side */
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Card chart container: same fixed height so all charts align */
+.chartContainer {
+  width: 100%;
+  height: 360px;                 /* increase to match Figma proportions */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;                  /* so canvas doesn't touch card border */
+  box-sizing: border-box;
+}
+
+/* Smaller screens: stack vertically and remove left margin */
+@media (max-width: 992px) {
+  .content {
+    margin-left: 0;
+    padding: 16px;
+  }
+  .row {
+    grid-template-columns: 1fr;
+  }
+  .chartContainer { height: 320px; }
+}
+
+/* ensure charts don't overflow */
+.cardCanvasWrap {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

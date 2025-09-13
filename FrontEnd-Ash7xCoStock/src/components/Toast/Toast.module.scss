@@ -1,0 +1,50 @@
+/* src/components/Toast/Toast.module.scss */
+.container {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.msg {
+  flex: 1;
+  padding-right: 8px;
+}
+
+.close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* variants */
+.success {
+  background: linear-gradient(180deg, #2ecc71, #27ae60);
+}
+
+.error {
+  background: linear-gradient(180deg, #e74c3c, #c0392b);
+}
+
+.info {
+  background: linear-gradient(180deg, #3498db, #2c82d6);
+}
